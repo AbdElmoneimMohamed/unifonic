@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../src/Campaigns/Communication/Http/Controller
+        namespace: App\Campaigns\Communication\Http\Controller
+    type: attribute

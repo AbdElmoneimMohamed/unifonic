@@ -1,0 +1,9 @@
+parameters:
+    level: 8
+    paths:
+        - src/
+
+    ignoreErrors:
+            -
+              message: '#Property [a-zA-Z0-9\\_]+::\$id is never written, only read.#'
+              path: src/Campaigns/Persistence/Entity/Campaign
