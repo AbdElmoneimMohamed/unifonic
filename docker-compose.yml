@@ -23,8 +23,6 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
-#    networks:
-#      - smsapi
     ports:
       # HTTP
       - target: 80
@@ -83,8 +81,3 @@ volumes:
   redis-cache:
     driver: local
 ###< doctrine/doctrine-bundle ###
-
-
-#networks:
-#  smsapi:
-#    driver: bridge

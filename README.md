@@ -3,6 +3,7 @@
 # HLD
 ### We're Consuming two apis for campaigns
 
+``` postman collection exist in postmanCollection directory ```
 
 #### 1.Campaigns list  `/campaigns`
 ```
@@ -40,20 +41,20 @@ contacts => type file (contacts.csv)
 
 just run ``make local-setup`` 
 ```
- => build the docker images and run the 
- => run migrations files 
+ => build the docker images
+ => run migrations
  => start queue
  ```
 
 ## Usage
 
-| Command            | Meaning                        |
-|--------------------|--------------------------------|
-| `make local-setup` | setup local environment        |
-| `make build`       | build docker                   |
-| `make start`       | stop docker with remove images |
-| `make migrate`     | run migration                  |
-| `make ecs`         | run cs-fixer                   |
-| `make php-stan`    | run php-stan                   |
-| `make queue`       | run queue                      |
+| Command            | Meaning                 |
+|--------------------|-------------------------|
+| `make local-setup` | setup local environment |
+| `make build`       | build docker            |
+| `make start`       | start docker            |
+| `make migrate`     | run migration           |
+| `make ecs`         | run cs-fixer            |
+| `make php-stan`    | run php-stan            |
+| `make queue`       | run queue               |
 
