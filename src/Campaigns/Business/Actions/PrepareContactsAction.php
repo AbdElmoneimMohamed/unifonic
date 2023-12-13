@@ -9,7 +9,7 @@ use League\Csv\Reader;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Webmozart\Assert\Assert;
 
-final class PrepareContactsAction
+final readonly class PrepareContactsAction
 {
     private const PHONE_NUMBER_INDEX = 2;
 

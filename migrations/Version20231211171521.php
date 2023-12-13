@@ -20,7 +20,7 @@ final class Version20231211171521 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_E37374705E237E06 ON campaigns (name)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_E37374705E237E06 ON campaigns (message)');
     }
 
     public function down(Schema $schema): void

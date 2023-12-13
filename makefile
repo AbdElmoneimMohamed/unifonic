@@ -1,3 +1,15 @@
+# Executables (local)
+DOCKER_COMP = docker-compose
+
+# Docker containers
+PHP_CONT = $(DOCKER_COMP) exec php
+
+# Executables
+PHP      = $(PHP_CONT) php
+COMPOSER = $(PHP_CONT) composer
+SYMFONY  = $(PHP_CONT) bin/console
+
+
 .PHONY: build
 build: ## Build images for symfony app and sms mock api
 	docker compose build --no-cache && docker compose -f docker-compose.smsapi.yml build --no-cache
@@ -12,7 +24,7 @@ stop: ## Stop containers for symfony app and sms mock api
 
 .PHONY: bash-app
 bash-app: ## Bash into symfony app container
-	docker exec -it symfony-docker-php-1 bash
+	@$(PHP_CONT) sh
 
 .PHONY: bash-sms
 bash-sms: ## Bash into sms container
@@ -21,17 +33,18 @@ bash-sms: ## Bash into sms container
 
 local-setup:
 	make build
+	make start
 	make migrate
 	make queue
 
 queue:
-	docker exec symfony-docker-php-1 bin/console messenger:consume -vv
+	@$(SYMFONY) messenger:consume -vv
 
 migrate:
-	docker exec symfony-docker-php-1 bin/console doctrine:migrations:migrate --allow-no-migration --no-interaction
+	@$(SYMFONY) doctrine:migrations:migrate --allow-no-migration --no-interaction
 
 php-stan:
-	docker exec symfony-docker-php-1 vendor/bin/phpstan analyse --memory-limit=-1
+	@$(PHP_CONT) vendor/bin/phpstan analyse --memory-limit=-1
 
 ecs:
-	docker exec symfony-docker-php-1 vendor/bin/ecs --fix
+	@$(PHP_CONT) vendor/bin/ecs --fix

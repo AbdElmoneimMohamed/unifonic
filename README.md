@@ -3,7 +3,7 @@
 # HLD
 ### We're Consuming two apis for campaigns
 
-``` postman collection exist in postmanCollection directory ```
+``` postman collection exist in ./data/Campaigns.postman_collection.json ```
 
 #### 1.Campaigns list  `/campaigns`
 ```

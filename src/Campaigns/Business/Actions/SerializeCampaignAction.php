@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Webmozart\Assert\Assert;
 
-final class SerializeCampaignAction
+final readonly class SerializeCampaignAction
 {
     /**
      * @param array<Campaign> $campaigns
